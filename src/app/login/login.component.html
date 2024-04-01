@@ -1,4 +1,8 @@
 <div class="app-login-form">
+  <app-snackbar
+    [errorMessage]="errorMessage"
+    *ngIf="errorMessage"
+  ></app-snackbar>
   <h2>{{ isLoginMode ? "Login" : "SignUp" }} Here</h2>
   <app-loader *ngIf="isLoading"></app-loader>
   <form
@@ -28,7 +32,7 @@
         ngModel
       />
     </div>
-    <button type="submit" class="app-login-btn" [disabled]="authform.invalid">
+    <button type="submit" class="app-login-btn">
       {{ isLoginMode ? "Login" : "Signup" }}
     </button>
     <p>
